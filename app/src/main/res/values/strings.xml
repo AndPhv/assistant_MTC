@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">assistant_MTC</string>
+    <string name="menu_item_info">О ВУЦ</string>
+    <string name="menu_item_schedule">Расписание</string>
+    <string name="menu_item_employee">Преподаватели</string>
 </resources>
