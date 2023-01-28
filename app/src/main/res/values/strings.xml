@@ -3,4 +3,7 @@
     <string name="menu_item_info">О ВУЦ</string>
     <string name="menu_item_schedule">Расписание</string>
     <string name="menu_item_employee">Преподаватели</string>
+    <string name="fragment_label_home">Расписание</string>
+    <string name="fragment_label_about">О ВУЦ</string>
+    <string name="fragment_label_employee">Сотрудники ВУЦ</string>
 </resources>
