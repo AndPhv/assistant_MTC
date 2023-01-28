@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/aboutFragment"
+        android:icon="@drawable/info_circle_svgrepo_com"
+        android:title="@string/menu_item_info" />
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/time_planning_svgrepo_com"
+        android:title="@string/menu_item_schedule" />
+    <item
+        android:id="@+id/employeeFragment"
+        android:icon="@drawable/teacher_svgrepo_com"
+        android:title="@string/menu_item_employee" />
+</menu>
