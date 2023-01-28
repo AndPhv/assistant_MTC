@@ -1,4 +1,4 @@
-package com.example.assistant_mtc.auth
+package com.example.assistant_mtc.screen.auth
 
 import androidx.lifecycle.ViewModel
 
