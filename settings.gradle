@@ -1,2 +1,4 @@
 include ':app'
 rootProject.name = "assistant_MTC"
+include ':domain'
+include ':data'
