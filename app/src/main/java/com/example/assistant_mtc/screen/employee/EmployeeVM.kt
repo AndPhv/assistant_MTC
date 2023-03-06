@@ -1,4 +1,6 @@
 package com.example.assistant_mtc.screen.employee
 
-class EmployeeVM {
+import androidx.lifecycle.ViewModel
+
+class EmployeeVM : ViewModel() {
 }
