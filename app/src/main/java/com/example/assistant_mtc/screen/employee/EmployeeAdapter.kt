@@ -1,16 +1,14 @@
 package com.example.assistant_mtc.screen.employee
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.assistant_mtc.R
 import com.example.assistant_mtc.databinding.EmployeeItemBinding
 //import kotlinx.android.synthetic.main.employee_item.view.*
 
 class EmployeeAdapter: RecyclerView.Adapter<EmployeeAdapter.EmployeeHolder>() {
 
-    private var employeeList = emptyList<Employee>()
+    private var employeeList = emptyList<com.sogya.mtc.domain.models.Employee>()
 
     inner class EmployeeHolder(val binding: EmployeeItemBinding): RecyclerView.ViewHolder(binding.root)
 
@@ -27,7 +25,7 @@ class EmployeeAdapter: RecyclerView.Adapter<EmployeeAdapter.EmployeeHolder>() {
         return employeeList.size
     }
 
-    fun setList(list: List<Employee>) {
+    fun setList(list: List<com.sogya.mtc.domain.models.Employee>) {
         employeeList = list
         notifyDataSetChanged()
     }
