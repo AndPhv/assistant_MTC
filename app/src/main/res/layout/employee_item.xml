@@ -67,5 +67,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:textColor="#FFFFFF" />
+
     </LinearLayout>
 </androidx.cardview.widget.CardView>
