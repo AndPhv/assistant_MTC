@@ -21,6 +21,7 @@ class EmployeeAdapter : RecyclerView.Adapter<EmployeeAdapter.EmployeeViewHolder>
         val jobTextView: TextView = itemView.findViewById(R.id.textViewJob)
         val emailTextView: TextView = itemView.findViewById(R.id.textViewEmail)
         val phoneTextView: TextView = itemView.findViewById(R.id.textViewPhone)
+        val phoneAddTextView: TextView = itemView.findViewById(R.id.textViewPhoneAdd)
         val audienceTextView: TextView = itemView.findViewById(R.id.textViewAudience)
     }
 
@@ -37,6 +38,7 @@ class EmployeeAdapter : RecyclerView.Adapter<EmployeeAdapter.EmployeeViewHolder>
         holder.jobTextView.text = employee.jobTitle
         holder.emailTextView.text = employee.email
         holder.phoneTextView.text = employee.phone
+        holder.phoneAddTextView.text = employee.phoneAdd
         holder.audienceTextView.text = employee.audience
     }
 
