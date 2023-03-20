@@ -1,8 +1,5 @@
 package com.sogya.mtc.domain.models
 
-import android.widget.ImageView
-
-
 data class EmployeeDomain(
     val imageEmployee: Int,
     val fullName: String,
