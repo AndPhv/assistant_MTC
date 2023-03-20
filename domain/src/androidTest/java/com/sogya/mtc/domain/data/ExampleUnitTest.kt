@@ -1,4 +1,4 @@
-package com.sogya.mtc.data
+package com.sogya.mtc.domain.data
 
 import org.junit.Test
 
