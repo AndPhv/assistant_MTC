@@ -3,6 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginRight="10dp"
     android:layout_marginBottom="10dp"
     android:background="#010029"
     app:cardBackgroundColor="#010029"
@@ -13,10 +16,11 @@
         android:id="@+id/imageViewEmployee"
         android:layout_width="100dp"
         android:layout_height="130dp"
+        android:layout_gravity="center_vertical"
         android:layout_marginVertical="10dp"
         android:background="#010029"
         app:shapeAppearanceOverlay="@style/roundImageView"
-        app:srcCompat="@drawable/employee1"/>
+        app:srcCompat="@drawable/employee1" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -35,7 +39,7 @@
             android:gravity="center"
             android:textColor="#FFFFFF"
             android:textSize="17sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textViewJob"
@@ -45,37 +49,37 @@
             android:layout_margin="5dp"
             android:gravity="center"
             android:textColor="#FFFFFF"
-            android:textSize="15sp"/>
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/textViewEmail"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="end"
-            android:textColor="#FFFFFF"
-            android:autoLink="email"/>
+            android:autoLink="email"
+            android:textColor="#FFFFFF" />
 
         <TextView
             android:id="@+id/textViewPhone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:textColor="#FFFFFF"
-            android:autoLink="phone"/>
+            android:autoLink="phone"
+            android:textColor="#FFFFFF" />
 
         <TextView
             android:id="@+id/textViewPhoneAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:textColor="#FFFFFF"/>
+            android:textColor="#FFFFFF" />
 
         <TextView
             android:id="@+id/textViewAudience"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:textColor="#FFFFFF"/>
+            android:textColor="#FFFFFF" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>
