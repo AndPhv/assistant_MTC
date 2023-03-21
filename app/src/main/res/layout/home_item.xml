@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:soundEffectsEnabled="true"
+    app:layout_scrollEffect="none">
+
+    <ImageView
+        android:id="@+id/imageViewElemLes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/element_lesson" />
+
+    <TextView
+        android:id="@+id/textViewLes"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="11dp"
+        android:gravity="center"
+        android:text="Самостоятельная работа"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayoutBottom"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewElemLes"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/imageViewElemLes"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutTop"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <LinearLayout
+        android:id="@+id/linearLayoutTop"
+        android:layout_width="347dp"
+        android:layout_height="19dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewElemLes"
+        app:layout_constraintStart_toStartOf="@+id/imageViewElemLes"
+        app:layout_constraintTop_toTopOf="@+id/imageViewElemLes">
+
+        <TextView
+            android:id="@+id/textViewNumLes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_weight="1"
+            android:text="1 пара"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/textViewTimeLes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="40dp"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:text="9:00 - 10:30"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutBottom"
+        android:layout_width="346dp"
+        android:layout_height="18dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewElemLes"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewElemLes"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageViewElemLes">
+
+        <TextView
+            android:id="@+id/textViewEmp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_weight="1"
+            android:text="Шубин А.В."
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/textViewAud"
+            android:layout_width="174dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="40dp"
+            android:gravity="right"
+            android:text="Ауд. 101"
+            android:textColor="#000000" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
