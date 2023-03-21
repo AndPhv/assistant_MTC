@@ -28,13 +28,14 @@
         android:gravity="center"
         android:text="Самостоятельная работа"
         android:textColor="#000000"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/linearLayoutBottom"
         app:layout_constraintEnd_toEndOf="@+id/imageViewElemLes"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/imageViewElemLes"
         app:layout_constraintTop_toBottomOf="@+id/linearLayoutTop"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <LinearLayout
         android:id="@+id/linearLayoutTop"
@@ -48,21 +49,23 @@
         <TextView
             android:id="@+id/textViewNumLes"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginStart="40dp"
             android:layout_weight="1"
             android:text="1 пара"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textViewTimeLes"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginEnd="40dp"
             android:layout_weight="1"
             android:gravity="right"
             android:text="9:00 - 10:30"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
@@ -78,20 +81,22 @@
         <TextView
             android:id="@+id/textViewEmp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginStart="40dp"
             android:layout_weight="1"
             android:text="Шубин А.В."
-            android:textColor="#000000" />
+            android:textColor="#000000"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textViewAud"
-            android:layout_width="174dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginEnd="40dp"
             android:gravity="right"
             android:text="Ауд. 101"
-            android:textColor="#000000" />
+            android:textColor="#000000"
+            android:textStyle="bold" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
