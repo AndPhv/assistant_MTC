@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
+    android:layout_marginStart="5dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginEnd="5dp"
+    android:layout_marginBottom="10dp"
     android:background="@drawable/lession_background_rotated"
     android:orientation="vertical"
     android:soundEffectsEnabled="true"
@@ -27,7 +30,7 @@
             android:layout_weight="1"
             android:gravity="start"
             android:text="1 пара"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/white"
             android:textStyle="bold" />
 
         <TextView
@@ -39,7 +42,7 @@
             android:layout_weight="1"
             android:gravity="end"
             android:text="9:00 - 10:30"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/white"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -49,8 +52,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:gravity="center"
-        android:text="Самостоятельная работа"
-        android:textColor="#000000"
+        android:text="Военно-специальная подготовка"
+        android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -68,7 +71,7 @@
             android:layout_marginStart="40dp"
             android:layout_weight="1"
             android:text="Шубин А.В."
-            android:textColor="#000000"
+            android:textColor="@color/black"
             android:textStyle="bold" />
 
         <TextView
@@ -78,7 +81,7 @@
             android:layout_marginEnd="40dp"
             android:gravity="right"
             android:text="Ауд. 101"
-            android:textColor="#000000"
+            android:textColor="@color/black"
             android:textStyle="bold" />
     </LinearLayout>
 

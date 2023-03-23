@@ -36,8 +36,9 @@ class EmployeeFragment : Fragment(R.layout.fragment_employee) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
-            rcView.adapter = employeeAdapter
-            rcView.layoutManager = LinearLayoutManager(requireContext())
+            recyclerViewEmployee.adapter = employeeAdapter
+            recyclerViewEmployee.layoutManager = LinearLayoutManager(requireContext())
+            recyclerViewEmployee.setItemViewCacheSize(20)
         }
     }
 }

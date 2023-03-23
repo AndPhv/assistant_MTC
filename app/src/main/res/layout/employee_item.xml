@@ -11,11 +11,14 @@
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imageViewEmployee"
-        android:layout_width="130dp"
-        android:layout_height="172dp"
+        android:layout_width="132dp"
+        android:layout_height="174dp"
         android:layout_gravity="center_vertical"
         android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="2dp"
+        android:layout_marginBottom="5dp"
+        android:padding="2dp"
         app:shapeAppearanceOverlay="@style/roundImageView"
         app:srcCompat="@drawable/employee10" />
 
@@ -23,7 +26,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="2dp"
-        android:layout_marginEnd="5dp">
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="7dp">
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -39,11 +43,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
 
             <TextView
                 android:id="@+id/textViewName"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="2dp"
@@ -65,7 +70,7 @@
                 android:gravity="center"
                 android:maxWidth="240dp"
                 android:textColor="#FFFFFF"
-                android:textSize="13sp"
+                android:textSize="12sp"
                 tools:text="Начальник учебной части - заместитель начальника Военного учебного центра, полковник" />
 
         </LinearLayout>
@@ -82,22 +87,22 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <TextView
-                android:id="@+id/textViewPhone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:autoLink="phone"
-                android:textColor="#FFFFFF"
-                android:textSize="14sp" />
-
-            <TextView
                 android:id="@+id/textViewEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:autoLink="email"
                 android:textColor="#FFFFFF"
-                android:textSize="14sp" />
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/textViewPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:autoLink="phone"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/textViewPhoneAdd"
@@ -105,7 +110,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:textColor="#FFFFFF"
-                android:textSize="14sp" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/textViewAudience"
@@ -113,7 +118,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:textColor="#FFFFFF"
-                android:textSize="14sp" />
+                android:textSize="12sp" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 

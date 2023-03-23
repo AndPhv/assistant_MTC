@@ -39,8 +39,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         binding.apply {
             //Здесь работаем с эелементами, достаточно написать его id
 
-            rcView.adapter = homeAdapter
-            rcView.layoutManager = LinearLayoutManager(requireContext())
+            recyclerViewHome.adapter = homeAdapter
+            recyclerViewHome.layoutManager = LinearLayoutManager(requireContext())
         }
     }
 }

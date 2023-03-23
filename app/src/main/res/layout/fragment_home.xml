@@ -10,38 +10,66 @@
         android:id="@+id/Emblem"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/background"
-        app:layout_constraintEnd_toEndOf="@+id/background"
-        app:layout_constraintStart_toStartOf="@+id/background"
-        app:layout_constraintTop_toTopOf="@+id/background"
-        app:srcCompat="@drawable/emblem" />
-
-    <ImageView
-        android:id="@+id/background"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="110dp"
-        android:layout_marginEnd="29dp"
-        android:layout_marginBottom="100dp"
-        android:foregroundGravity="center"
+        android:layout_margin="5dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/background" />
+        app:srcCompat="@drawable/emblem" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcView"
+    <androidx.cardview.widget.CardView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:cardBackgroundColor="@color/green_bc"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="0dp"
         app:layout_constraintBottom_toBottomOf="@+id/Emblem"
-        app:layout_constraintEnd_toEndOf="@+id/background"
-        app:layout_constraintStart_toStartOf="@+id/background"
-        app:layout_constraintTop_toTopOf="@+id/Emblem"
-        tools:listitem="@layout/home_item" />
+        app:layout_constraintEnd_toEndOf="@+id/Emblem"
+        app:layout_constraintStart_toStartOf="@+id/Emblem"
+        app:layout_constraintTop_toTopOf="@+id/Emblem">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Пятница "
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:text="23 марта"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewHome"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="4"
+                tools:listitem="@layout/home_item" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
