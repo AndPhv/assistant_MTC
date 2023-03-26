@@ -7,247 +7,69 @@
     android:background="#000353">
 
     <ImageView
-        android:id="@+id/background_lesson4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@id/lesson_button4"
-        app:layout_constraintEnd_toEndOf="@id/lesson_button4"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/lesson_button4"
-        app:layout_constraintTop_toTopOf="@id/lesson_button4"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/backgroud_lesson" />
-
-    <ImageView
-        android:id="@+id/background_lesson3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@id/lesson_button3"
-        app:layout_constraintEnd_toEndOf="@id/lesson_button3"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/lesson_button3"
-        app:layout_constraintTop_toTopOf="@id/lesson_button3"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/backgroud_lesson" />
-
-    <ImageView
-        android:id="@+id/background"
-        android:layout_width="440dp"
-        android:layout_height="524dp"
-        android:layout_marginTop="120dp"
-        android:layout_marginBottom="87dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.517"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/background" />
-
-    <ImageView
         android:id="@+id/Emblem"
-        android:layout_width="360dp"
-        android:layout_height="492dp"
-        android:layout_marginTop="120dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="119dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/emblem" />
 
-    <ImageButton
-        android:id="@+id/lesson_button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:background="#00A11C1C"
-        app:layout_constraintBottom_toBottomOf="@+id/background"
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:cardBackgroundColor="@color/green_bc"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/Emblem"
         app:layout_constraintEnd_toEndOf="@+id/Emblem"
-        app:layout_constraintHorizontal_bias="0.521"
         app:layout_constraintStart_toStartOf="@+id/Emblem"
-        app:layout_constraintTop_toTopOf="@+id/background"
-        app:layout_constraintVertical_bias="0.467"
-        app:srcCompat="@drawable/lesson_button" />
+        app:layout_constraintTop_toTopOf="@+id/Emblem">
 
-    <TextView
-        android:id="@+id/number_lesson3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:autoText="false"
-        android:breakStrategy="high_quality"
-        android:text="3 пара"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@id/background_lesson3"
-        app:layout_constraintEnd_toEndOf="@id/background_lesson3"
-        app:layout_constraintHorizontal_bias="0.136"
-        app:layout_constraintStart_toStartOf="@id/background_lesson3"
-        app:layout_constraintTop_toTopOf="@id/background_lesson3"
-        app:layout_constraintVertical_bias="0.0" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/background_lesson1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/lesson_button1"
-        app:layout_constraintEnd_toEndOf="@+id/lesson_button1"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/lesson_button1"
-        app:layout_constraintTop_toTopOf="@+id/lesson_button1"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/backgroud_lesson" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:orientation="horizontal">
 
-    <ImageButton
-        android:id="@+id/lesson_button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:background="#00A11C1C"
-        app:layout_constraintBottom_toBottomOf="@+id/background"
-        app:layout_constraintEnd_toEndOf="@+id/Emblem"
-        app:layout_constraintHorizontal_bias="0.521"
-        app:layout_constraintStart_toStartOf="@+id/Emblem"
-        app:layout_constraintTop_toTopOf="@+id/background"
-        app:layout_constraintVertical_bias="0.686"
-        app:srcCompat="@drawable/lesson_button" />
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Пятница "
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
 
-    <ImageView
-        android:id="@+id/background_lesson2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@id/lesson_button2"
-        app:layout_constraintEnd_toEndOf="@id/lesson_button2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/lesson_button2"
-        app:layout_constraintTop_toTopOf="@id/lesson_button2"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/backgroud_lesson" />
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:text="23 марта"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+            </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/lesson_button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:background="#00A11C1C"
-        app:layout_constraintBottom_toBottomOf="@+id/background"
-        app:layout_constraintEnd_toEndOf="@+id/Emblem"
-        app:layout_constraintHorizontal_bias="0.521"
-        app:layout_constraintStart_toStartOf="@+id/Emblem"
-        app:layout_constraintTop_toTopOf="@+id/background"
-        app:layout_constraintVertical_bias="0.245"
-        app:srcCompat="@drawable/lesson_button" />
-
-    <TextView
-        android:id="@+id/number_lesson1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:autoText="false"
-        android:breakStrategy="high_quality"
-        android:text="1 пара"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@+id/background_lesson1"
-        app:layout_constraintEnd_toEndOf="@+id/background_lesson1"
-        app:layout_constraintHorizontal_bias="0.136"
-        app:layout_constraintStart_toStartOf="@+id/background_lesson1"
-        app:layout_constraintTop_toTopOf="@+id/background_lesson1"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/number_lesson2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:autoText="false"
-        android:breakStrategy="high_quality"
-        android:text="2 пара"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@id/background_lesson3"
-        app:layout_constraintEnd_toEndOf="@id/background_lesson2"
-        app:layout_constraintHorizontal_bias="0.136"
-        app:layout_constraintStart_toStartOf="@id/background_lesson2"
-        app:layout_constraintTop_toTopOf="@id/background_lesson2"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/time_lesson1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="09:00 -10:30"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@+id/background_lesson1"
-        app:layout_constraintEnd_toEndOf="@+id/background_lesson1"
-        app:layout_constraintHorizontal_bias="0.845"
-        app:layout_constraintStart_toStartOf="@+id/background_lesson1"
-        app:layout_constraintTop_toTopOf="@+id/background_lesson1"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/time_lesson2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="10:40 -12:10"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@id/background_lesson2"
-        app:layout_constraintEnd_toEndOf="@id/background_lesson2"
-        app:layout_constraintHorizontal_bias="0.845"
-        app:layout_constraintStart_toStartOf="@id/background_lesson2"
-        app:layout_constraintTop_toTopOf="@id/background_lesson2"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/time_lesson3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="13:00 -14:30"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@id/background_lesson3"
-        app:layout_constraintEnd_toEndOf="@id/background_lesson3"
-        app:layout_constraintHorizontal_bias="0.845"
-        app:layout_constraintStart_toStartOf="@id/background_lesson3"
-        app:layout_constraintTop_toTopOf="@id/background_lesson3"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/number_lesson4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:autoText="false"
-        android:breakStrategy="high_quality"
-        android:text="4 пара"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@id/background_lesson4"
-        app:layout_constraintEnd_toEndOf="@id/background_lesson4"
-        app:layout_constraintHorizontal_bias="0.136"
-        app:layout_constraintStart_toStartOf="@id/background_lesson4"
-        app:layout_constraintTop_toTopOf="@id/background_lesson4"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/time_lesson4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="14:40 -16:10"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@id/background_lesson4"
-        app:layout_constraintEnd_toEndOf="@id/background_lesson4"
-        app:layout_constraintHorizontal_bias="0.845"
-        app:layout_constraintStart_toStartOf="@id/background_lesson4"
-        app:layout_constraintTop_toTopOf="@id/background_lesson4"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <ImageButton
-        android:id="@+id/lesson_button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:background="#00A11C1C"
-        app:layout_constraintBottom_toBottomOf="@+id/background"
-        app:layout_constraintEnd_toEndOf="@+id/Emblem"
-        app:layout_constraintHorizontal_bias="0.521"
-        app:layout_constraintStart_toStartOf="@+id/Emblem"
-        app:layout_constraintTop_toTopOf="@+id/background"
-        app:layout_constraintVertical_bias="0.015"
-        app:srcCompat="@drawable/lesson_button" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewHome"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="4"
+                tools:listitem="@layout/home_item" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

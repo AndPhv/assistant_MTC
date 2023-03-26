@@ -2,9 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="10dp"
+    android:layout_marginStart="10dp"
     android:layout_marginTop="10dp"
-    android:layout_marginRight="10dp"
+    android:layout_marginEnd="10dp"
     android:layout_marginBottom="10dp"
     android:background="#010029"
     android:orientation="vertical">
@@ -13,6 +13,7 @@
         android:id="@+id/textViewHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:freezesText="false"
         android:gravity="center"
         android:textColor="#FFFFFF"
@@ -24,5 +25,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#FFFFFF"
-        android:textSize="15sp"/>
+        android:textSize="15sp" />
 </LinearLayout>

@@ -7,9 +7,10 @@
     android:background="#010029">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcView"
+        android:id="@+id/recyclerViewEmployee"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#010029"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
