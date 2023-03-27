@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.assistant_mtc.R
 import com.example.assistant_mtc.databinding.FragmentLessonBinding
 import com.example.assistant_mtc.screen.AppDataBase
+import com.example.assistant_mtc.screen.LessonRepository
+import com.example.assistant_mtc.screen.LessonRepositoryImpl
 
 class LessonFragment: Fragment(R.layout.fragment_lesson), LessonAdapter.LessonOnClickListener {
     private lateinit var binding: FragmentLessonBinding
@@ -19,7 +21,7 @@ class LessonFragment: Fragment(R.layout.fragment_lesson), LessonAdapter.LessonOn
 
     //database
     private lateinit var dataBase: AppDataBase
-
+    lateinit var repository: LessonRepository
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -28,6 +30,8 @@ class LessonFragment: Fragment(R.layout.fragment_lesson), LessonAdapter.LessonOn
         binding = FragmentLessonBinding.inflate(inflater, container, false)
         //database
         dataBase = AppDataBase.buildDatabase(requireContext(), DATABASE_NAME)
+        repository = LessonRepositoryImpl(dataBase.lessonDao())
+
         return binding.root
     }
 
