@@ -1,6 +1,5 @@
 package com.example.assistant_mtc.screen.home
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +10,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.assistant_mtc.R
 import com.example.assistant_mtc.databinding.FragmentHomeBinding
-import com.example.assistant_mtc.screen.lesson.LessonVM
 
 class HomeFragment : Fragment(R.layout.fragment_home), HomeAdapter.HomeOnClickListener {
     //Binding это замена findViewById
@@ -48,8 +46,6 @@ class HomeFragment : Fragment(R.layout.fragment_home), HomeAdapter.HomeOnClickLi
     }
 
     override fun onClick(command: Int) {
-//        val intent = Intent(requireContext(), LessonVM::class.java)
-//        startActivity(intent)
         findNavController().navigate(R.id.action_homeFragment_to_lessonFragment)
     }
 }
