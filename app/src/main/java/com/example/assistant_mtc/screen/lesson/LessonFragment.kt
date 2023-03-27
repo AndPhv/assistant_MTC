@@ -10,11 +10,15 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.assistant_mtc.R
 import com.example.assistant_mtc.databinding.FragmentLessonBinding
+import com.example.assistant_mtc.screen.AppDataBase
 
 class LessonFragment: Fragment(R.layout.fragment_lesson), LessonAdapter.LessonOnClickListener {
     private lateinit var binding: FragmentLessonBinding
     private val vm: LessonVM by viewModels()
     private val lessonAdapter = LessonAdapter(this)
+
+    //database
+    private lateinit var dataBase: AppDataBase
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -22,7 +26,14 @@ class LessonFragment: Fragment(R.layout.fragment_lesson), LessonAdapter.LessonOn
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentLessonBinding.inflate(inflater, container, false)
+        //database
+        dataBase = AppDataBase.buildDatabase(requireContext(), DATABASE_NAME)
         return binding.root
+    }
+
+    //database
+    companion object {
+        private const val DATABASE_NAME = "lesson_database"
     }
 
     override fun onResume() {
