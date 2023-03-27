@@ -8,8 +8,8 @@ import com.sogya.mtc.domain.models.LessonDomain
 @Dao
 interface LessonDao {
     @Insert
-    fun insert(lesson: LessonDomain)
+    suspend fun insert(lesson: LessonDomain)
 
     @Query("SELECT * FROM ${LessonDomain.TABLE_NAME}")
-    fun getAllLesson()
+    suspend fun getAllLesson(): List<LessonDomain>
 }
