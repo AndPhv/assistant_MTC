@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+
+    id 'kotlin-kapt'
 }
 
 android {
@@ -57,4 +59,10 @@ dependencies {
     //Modules
     implementation project(path: ':data')
     implementation project(path: ':domain')
+
+    //Room
+    def room_version = "2.5.1"
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
 }
