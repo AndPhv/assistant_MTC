@@ -15,6 +15,7 @@ class LessonVM: ViewModel() {
 
     fun getLessonLiveData(): LiveData<List<LessonDomain>> = lessonLiveData
 
+
     init {
         lessonLiveData.value = lessonList
     }
