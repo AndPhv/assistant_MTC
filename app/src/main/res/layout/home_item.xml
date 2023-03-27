@@ -11,7 +11,8 @@
     android:background="@drawable/lession_background_rotated"
     android:orientation="vertical"
     android:soundEffectsEnabled="true"
-    app:layout_scrollEffect="none">
+    app:layout_scrollEffect="none"
+    android:id="@+id/linearLayHome">
 
     <LinearLayout
         android:id="@+id/linearLayoutTop"

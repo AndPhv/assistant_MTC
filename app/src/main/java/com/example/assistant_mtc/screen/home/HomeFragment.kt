@@ -1,20 +1,23 @@
 package com.example.assistant_mtc.screen.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.assistant_mtc.R
 import com.example.assistant_mtc.databinding.FragmentHomeBinding
+import com.example.assistant_mtc.screen.lesson.LessonVM
 
-class HomeFragment : Fragment(R.layout.fragment_home) {
+class HomeFragment : Fragment(R.layout.fragment_home), HomeAdapter.HomeOnClickListener {
     //Binding это замена findViewById
     private lateinit var binding:FragmentHomeBinding
     private val vm: HomeVM by viewModels()
-    private val homeAdapter = HomeAdapter()
+    private val homeAdapter = HomeAdapter(this)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,5 +45,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             recyclerViewHome.adapter = homeAdapter
             recyclerViewHome.layoutManager = LinearLayoutManager(requireContext())
         }
+    }
+
+    override fun onClick(command: Int) {
+//        val intent = Intent(requireContext(), LessonVM::class.java)
+//        startActivity(intent)
+        findNavController().navigate(R.id.action_homeFragment_to_lessonFragment)
     }
 }

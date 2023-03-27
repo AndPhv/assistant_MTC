@@ -3,20 +3,29 @@ package com.example.assistant_mtc.screen.lesson
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assistant_mtc.R
+import com.example.assistant_mtc.screen.home.HomeAdapter
 import com.sogya.mtc.domain.models.LessonDomain
 
-class LessonAdapter : RecyclerView.Adapter<LessonAdapter.LessonViewHolder>() {
+class LessonAdapter(
+    private val lessonOnClickListener: LessonOnClickListener
+) : RecyclerView.Adapter<LessonAdapter.LessonViewHolder>() {
 
     private var lessonList = arrayListOf<LessonDomain>()
+
+    interface LessonOnClickListener {
+        fun onClick(command: Int)
+    }
 
     class LessonViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val audLesTextView: TextView = itemView.findViewById(R.id.textViewAudLes)
         val lessonLesTextView: TextView = itemView.findViewById(R.id.textViewLessonLes)
         val empLesTextView: TextView = itemView.findViewById(R.id.textViewEmpLes)
         val infoLesTextView: TextView = itemView.findViewById(R.id.textViewInfoLes)
+        val linearLayLes: LinearLayout = itemView.findViewById(R.id.linearLayLess)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LessonViewHolder {
@@ -31,6 +40,9 @@ class LessonAdapter : RecyclerView.Adapter<LessonAdapter.LessonViewHolder>() {
         holder.lessonLesTextView.text = lesson.lesson
         holder.empLesTextView.text = lesson.employee
         holder.infoLesTextView.text = lesson.infoLesson
+        holder.linearLayLes.setOnClickListener {
+            lessonOnClickListener.onClick(R.layout.fragment_home)
+        }
     }
 
     override fun getItemCount(): Int {

@@ -3,14 +3,22 @@ package com.example.assistant_mtc.screen.home
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assistant_mtc.R
+import com.example.assistant_mtc.screen.about.AboutAdapter
 import com.sogya.mtc.domain.models.HomeDomain
 
-class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HomeViewHolder>() {
+class HomeAdapter(
+    private val homeOnClickListener: HomeOnClickListener
+) : RecyclerView.Adapter<HomeAdapter.HomeViewHolder>() {
 
     private var homeList = arrayListOf<HomeDomain>()
+
+    interface HomeOnClickListener {
+        fun onClick(command: Int)
+    }
 
     class HomeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val numLesTextView: TextView = itemView.findViewById(R.id.textViewNumLes)
@@ -18,6 +26,7 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HomeViewHolder>() {
         val lessonTextView: TextView = itemView.findViewById(R.id.textViewLes)
         val employeeTextView: TextView = itemView.findViewById(R.id.textViewEmp)
         val audienceTextView: TextView = itemView.findViewById(R.id.textViewAud)
+        val linearLayHome: LinearLayout = itemView.findViewById(R.id.linearLayHome)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
@@ -33,6 +42,9 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HomeViewHolder>() {
         holder.lessonTextView.text = home.lesson
         holder.employeeTextView.text = home.employee
         holder.audienceTextView.text = home.audience
+        holder.linearLayHome.setOnClickListener {
+            homeOnClickListener.onClick(R.layout.fragment_lesson)
+        }
     }
 
     override fun getItemCount(): Int {

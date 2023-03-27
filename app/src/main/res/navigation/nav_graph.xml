@@ -40,6 +40,9 @@
         <action
             android:id="@+id/action_homeFragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_lessonFragment"
+            app:destination="@id/lessonFragment" />
     </fragment>
     <fragment
         android:id="@+id/employeeFragment"
@@ -53,4 +56,12 @@
         android:id="@+id/settingsFragment"
         android:name="com.example.assistant_mtc.screen.settings.SettingsFragment"
         android:label="SettingsFragment" />
+    <fragment
+        android:id="@+id/lessonFragment"
+        android:name="com.example.assistant_mtc.screen.lesson.LessonFragment"
+        android:label="LessonFragment" >
+        <action
+            android:id="@+id/action_lessonFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>
