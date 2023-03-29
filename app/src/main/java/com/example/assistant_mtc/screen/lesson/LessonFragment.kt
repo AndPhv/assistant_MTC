@@ -10,34 +10,23 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.assistant_mtc.R
 import com.example.assistant_mtc.databinding.FragmentLessonBinding
-import com.example.assistant_mtc.screen.AppDataBase
-import com.example.assistant_mtc.screen.LessonRepository
-import com.example.assistant_mtc.screen.LessonRepositoryImpl
+import com.sogya.mtc.data.database.AppDataBase
+import com.sogya.mtc.domain.repository.LessonRepository
+import com.sogya.mtc.data.repository.LessonRepositoryImpl
 
 class LessonFragment: Fragment(R.layout.fragment_lesson), LessonAdapter.LessonOnClickListener {
     private lateinit var binding: FragmentLessonBinding
     private val vm: LessonVM by viewModels()
     private val lessonAdapter = LessonAdapter(this)
 
-    //database
-    private lateinit var dataBase: AppDataBase
-    lateinit var repository: LessonRepository
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentLessonBinding.inflate(inflater, container, false)
-        //database
-        dataBase = AppDataBase.buildDatabase(requireContext(), DATABASE_NAME)
-        repository = LessonRepositoryImpl(dataBase.lessonDao())
 
         return binding.root
-    }
-
-    //database
-    companion object {
-        private const val DATABASE_NAME = "lesson_database"
     }
 
     override fun onResume() {
@@ -57,6 +46,5 @@ class LessonFragment: Fragment(R.layout.fragment_lesson), LessonAdapter.LessonOn
     }
 
     override fun onClick(command: Int) {
-        findNavController().navigate(R.id.action_lessonFragment_to_homeFragment)
     }
 }

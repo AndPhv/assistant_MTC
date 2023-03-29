@@ -9,6 +9,7 @@
         android:id="@+id/textViewAudLes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         android:text="TextView"
         android:textColor="#FFFFFF" />
 
@@ -16,6 +17,7 @@
         android:id="@+id/textViewLessonLes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         android:gravity="center"
         android:text="TextView"
         android:textColor="#FFFFFF"
@@ -25,6 +27,7 @@
         android:id="@+id/textViewEmpLes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         android:text="TextView"
         android:textColor="#FFFFFF" />
 
@@ -32,6 +35,7 @@
         android:id="@+id/textViewInfoLes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         android:gravity="center"
         android:text="TextView"
         android:textColor="#FFFFFF" />
