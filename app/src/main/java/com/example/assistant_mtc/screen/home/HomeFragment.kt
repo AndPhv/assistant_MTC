@@ -6,15 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.navOptions
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.assistant_mtc.R
 import com.example.assistant_mtc.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment(R.layout.fragment_home), HomeAdapter.HomeOnClickListener {
-    //Binding это замена findViewById
-    private lateinit var binding:FragmentHomeBinding
+    private lateinit var binding: FragmentHomeBinding
     private val vm: HomeVM by viewModels()
     private val homeAdapter = HomeAdapter(this)
 
@@ -23,7 +20,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), HomeAdapter.HomeOnClickLi
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentHomeBinding.inflate(inflater,container,false)
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -34,19 +31,16 @@ class HomeFragment : Fragment(R.layout.fragment_home), HomeAdapter.HomeOnClickLi
         }
     }
 
-    //Вся работа с view происзодит в этом методе, оналог onCreate() у активити
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.apply {
-            //Здесь работаем с эелементами, достаточно написать его id
-
             recyclerViewHome.adapter = homeAdapter
             recyclerViewHome.layoutManager = LinearLayoutManager(requireContext())
         }
     }
 
     override fun onClick(command: Int) {
-        findNavController().navigate(R.id.action_homeFragment_to_lessonFragment)
+//        findNavController().navigate(R.id.action_homeFragment_to_lessonFragment)
     }
 }
