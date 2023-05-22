@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.assistant_mtc.R
 import com.example.assistant_mtc.databinding.FragmentHomeBinding
@@ -37,10 +38,13 @@ class HomeFragment : Fragment(R.layout.fragment_home), HomeAdapter.HomeOnClickLi
         binding.apply {
             recyclerViewHome.adapter = homeAdapter
             recyclerViewHome.layoutManager = LinearLayoutManager(requireContext())
+            textViewGroupNum.setOnClickListener {
+                findNavController().navigate(R.id.action_homeFragment_to_groupFragment)
+            }
         }
     }
 
     override fun onClick(command: Int) {
-//        findNavController().navigate(R.id.action_homeFragment_to_lessonFragment)
+       findNavController().navigate(R.id.action_homeFragment_to_lessonFragment)
     }
 }
