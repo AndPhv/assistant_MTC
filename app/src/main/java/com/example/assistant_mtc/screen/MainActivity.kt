@@ -3,6 +3,7 @@ package com.example.assistant_mtc.screen
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -21,6 +22,16 @@ class MainActivity : AppCompatActivity() {
         setupNavigation()
         navController.addOnDestinationChangedListener { _, destination, _ ->
             supportActionBar?.title = destination.label
+            when(destination.id){
+                R.id.authFragment -> {
+                    binding.bottomNavMenu.visibility = View.GONE
+                    supportActionBar?.hide()
+                }
+                else-> {
+                    binding.bottomNavMenu.visibility = View.VISIBLE
+                    supportActionBar?.show()
+                }
+            }
         }
     }
 
@@ -29,7 +40,6 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         navController = navHostFragment.navController
         binding.bottomNavMenu.setupWithNavController(navController)
-        binding.bottomNavMenu.selectedItemId = R.id.homeFragment
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

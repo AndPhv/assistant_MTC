@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/authFragment">
 
     <fragment
         android:id="@+id/startFragment"
@@ -26,7 +26,11 @@
     <fragment
         android:id="@+id/authFragment"
         android:name="com.example.assistant_mtc.screen.auth.AuthFragment"
-        android:label="Auth" />
+        android:label="Auth">
+        <action
+            android:id="@+id/action_authFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.assistant_mtc.screen.home.HomeFragment"
@@ -43,6 +47,9 @@
         <action
             android:id="@+id/action_homeFragment_to_lessonFragment"
             app:destination="@id/lessonFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_groupFragment"
+            app:destination="@id/groupFragment" />
     </fragment>
     <fragment
         android:id="@+id/employeeFragment"
@@ -59,5 +66,9 @@
     <fragment
         android:id="@+id/lessonFragment"
         android:name="com.example.assistant_mtc.screen.lesson.LessonFragment"
-        android:label="LessonFragment" />
+        android:label="О предмете" />
+    <fragment
+        android:id="@+id/groupFragment"
+        android:name="com.example.assistant_mtc.screen.group.GroupFragment"
+        android:label="О взводе" />
 </navigation>
