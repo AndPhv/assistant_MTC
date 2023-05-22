@@ -1,4 +1,6 @@
 package com.example.assistant_mtc.screen.start
 
-class StartVM {
+import androidx.lifecycle.ViewModel
+
+class StartVM :ViewModel() {
 }
