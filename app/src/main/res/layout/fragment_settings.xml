@@ -19,22 +19,27 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/emblem" />
 
-    <androidx.cardview.widget.CardView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:cardBackgroundColor="@color/green_bc"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="0dp"
+        android:background="@color/green_bc"
         app:layout_constraintBottom_toBottomOf="@+id/emblem"
         app:layout_constraintEnd_toEndOf="@+id/emblem"
         app:layout_constraintStart_toStartOf="@+id/emblem"
         app:layout_constraintTop_toTopOf="@+id/emblem">
 
         <LinearLayout
+            android:id="@+id/linearLayout3"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -90,6 +95,24 @@
                 android:textSize="16sp"
                 app:drawableStartCompat="@drawable/ic_help"
                 app:drawableTint="@color/white" />
+
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
+
+        <Button
+            style="@style/Widget.Material3.Button.IconButton.Filled"
+            android:id="@+id/button4"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="Выйти"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:backgroundTint="@color/button_red"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+            app:layout_constraintVertical_bias="1.0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
