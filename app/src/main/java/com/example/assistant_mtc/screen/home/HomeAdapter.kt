@@ -7,14 +7,16 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assistant_mtc.R
-import com.example.assistant_mtc.screen.about.AboutAdapter
-import com.sogya.mtc.domain.models.HomeDomain
+import com.sogya.mtc.domain.models.LessonDomain
 
 class HomeAdapter(
     private val homeOnClickListener: HomeOnClickListener
 ) : RecyclerView.Adapter<HomeAdapter.HomeViewHolder>() {
 
-    private var homeList = arrayListOf<HomeDomain>()
+    private var lessonList = arrayListOf<LessonDomain>()
+    private val timeArray = arrayListOf(
+        "9:00-10.30", "10:40-12.10", "13:00-14.30", "14:40-16.10",
+    )
 
     interface HomeOnClickListener {
         fun onClick(command: Int)
@@ -36,26 +38,24 @@ class HomeAdapter(
     }
 
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
-        val home = homeList[position]
-        holder.numLesTextView.text = home.numLes
-        holder.timeLesTextView.text = home.timeLes
-        holder.lessonTextView.text = home.lesson
-        holder.employeeTextView.text = home.employee
-        holder.audienceTextView.text = home.audience
+        val lesson = lessonList[position]
+        holder.numLesTextView.text = (position + 1).toString()
+        holder.lessonTextView.text = timeArray[position]
+        holder.employeeTextView.text = lesson.employee
+        holder.audienceTextView.text = lesson.audience
         holder.linearLayHome.setOnClickListener {
             homeOnClickListener.onClick(R.layout.fragment_lesson)
         }
     }
 
     override fun getItemCount(): Int {
-        return homeList.size
+        return lessonList.size
     }
 
-    fun updateHomeList(inputArrayList: List<HomeDomain>) {
-        this.homeList.clear()
+    fun updateLessonList(inputArrayList: List<LessonDomain>) {
+        this.lessonList.clear()
         notifyItemChanged(1)
-        this.homeList.addAll(inputArrayList)
+        this.lessonList.addAll(inputArrayList)
         notifyItemRangeChanged(0, inputArrayList.size)
     }
-
 }

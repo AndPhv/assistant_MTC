@@ -7,17 +7,12 @@ import com.sogya.mtc.domain.models.LessonDomain
 @Entity(tableName = "lesson")
 data class LessonData(
     @PrimaryKey
-    val id: String = "",
-    val audience: String = "",
-    val lesson: String = "",
-    val employee: String = "",
-    val infoLesson: String = ""
-) {
-    fun toDomain() = LessonDomain(
-        this.id,
-        this.audience,
-        this.lesson, this.employee, this.infoLesson
-    )
+    override val id: String = "",
+    override val audience: String = "",
+    override val lesson: String = "",
+    override val employee: String = "",
+    override val infoLesson: String = ""
+) : LessonDomain {
 
     fun toData(lessonDomain: LessonDomain) = LessonData(
         lessonDomain.id,
