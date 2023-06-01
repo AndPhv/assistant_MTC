@@ -10,7 +10,9 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.assistant_mtc.R
 import com.example.assistant_mtc.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navHostFragment: NavHostFragment
@@ -22,12 +24,13 @@ class MainActivity : AppCompatActivity() {
         setupNavigation()
         navController.addOnDestinationChangedListener { _, destination, _ ->
             supportActionBar?.title = destination.label
-            when(destination.id){
+            when (destination.id) {
                 R.id.authFragment -> {
                     binding.bottomNavMenu.visibility = View.GONE
                     supportActionBar?.hide()
                 }
-                else-> {
+
+                else -> {
                     binding.bottomNavMenu.visibility = View.VISIBLE
                     supportActionBar?.show()
                 }
@@ -53,7 +56,8 @@ class MainActivity : AppCompatActivity() {
                 navController.navigate(R.id.settingsFragment)
                 true
             }
-            else->{
+
+            else -> {
                 super.onOptionsItemSelected(item)
             }
         }

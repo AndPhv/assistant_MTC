@@ -11,7 +11,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.assistant_mtc.R
 import com.example.assistant_mtc.databinding.FragmentHomeBinding
-
+import dagger.hilt.InstallIn
+import dagger.hilt.android.AndroidEntryPoint
+@AndroidEntryPoint
 class HomeFragment : Fragment(R.layout.fragment_home), HomeAdapter.HomeOnClickListener {
     private lateinit var binding: FragmentHomeBinding
     private val vm: HomeVM by viewModels()

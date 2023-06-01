@@ -4,22 +4,25 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.assistant_mtc.app.App
 import com.sogya.mtc.domain.models.LessonDomain
 import com.sogya.mtc.domain.usecase.lesson.GetAllLessonsUseCase
 import com.sogya.mtc.domain.usecase.lesson.InsertLessonsUseCase
+import com.sogya.mtc.domain.usecase.network.GetLessonsByGroupIdUseCase
 import com.sogya.mtc.domain.utils.Constants
+import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class HomeVM : ViewModel() {
-    private val lessonRepository = App.getLessonRepository()
-    private val networkRepository = App.getNetworkRepository()
-    private val getLessonsUseCase = GetAllLessonsUseCase(lessonRepository)
+@HiltViewModel
+class HomeVM @Inject constructor(
+    getLessonsUseCase:GetAllLessonsUseCase,
+    private val insertLessonsUseCase:InsertLessonsUseCase,
+    private val getLessonsByGroupIdUseCase: GetLessonsByGroupIdUseCase
+): ViewModel() {
     private var lessonLiveData: LiveData<List<LessonDomain>> = MutableLiveData()
-    private val insertLessonsUseCase = InsertLessonsUseCase(lessonRepository)
     private val groupId: Int? = null
     private val errorLiveData = MutableLiveData<String>()
 
@@ -28,11 +31,11 @@ class HomeVM : ViewModel() {
 
     init {
         lessonLiveData = getLessonsUseCase()
-        updateTimeTable()
+        //updateTimeTable()
     }
 
     private fun updateTimeTable() {
-        networkRepository.getLessonsByGroupId(token = Constants.BASE_TOKEN, groupId = groupId!!)
+        getLessonsByGroupIdUseCase(token = Constants.BASE_TOKEN, groupId = groupId!!)
             .subscribeOn(
                 Schedulers.io()
             )
