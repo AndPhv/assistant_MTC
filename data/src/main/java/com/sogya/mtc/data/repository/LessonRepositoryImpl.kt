@@ -2,7 +2,7 @@ package com.sogya.mtc.data.repository
 
 import android.content.Context
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.Transformations
+import androidx.lifecycle.map
 import androidx.room.Room
 import com.sogya.mtc.data.database.AppDataBase
 import com.sogya.mtc.data.mappers.LessonListMapper
@@ -15,14 +15,29 @@ class LessonRepositoryImpl(context: Context) : LessonRepository {
         context, AppDataBase::class.java, "local-data-base"
     ).allowMainThreadQueries()
         .build()
+    private val lessonDao = db.lessonDao()
 
-    override suspend fun insert(lesson: LessonDomain) {
-        db.lessonDao().insert(LessonData().toData(lesson))
+    override suspend fun insertLessons(lessonList: List<LessonDomain>) {
+        lessonDao.insertLessons(LessonListMapper(domainList = lessonList).mapToDataList())
+    }
+
+    override suspend fun deleteLessons(lessonList: List<LessonDomain>) {
+        lessonDao.deleteLessons(LessonListMapper(domainList = lessonList).mapToDataList())
     }
 
     override fun getAllLesson(): LiveData<List<LessonDomain>> {
-        return Transformations.map(db.lessonDao().getAllLesson()) {
-            LessonListMapper(it).map()
+        return lessonDao.getAllLesson().map {
+            LessonListMapper(it).mapToDomainList()
+        }
+    }
+
+    override suspend fun updateLesson(lesson: LessonDomain) {
+        lessonDao.updateLesson(LessonData().toData(lesson))
+    }
+
+    override fun getLessonById(lessonId: String): LiveData<LessonDomain> {
+        return lessonDao.getLessonById(lessonId).map {
+            it
         }
     }
 }
