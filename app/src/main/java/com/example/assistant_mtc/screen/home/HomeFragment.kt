@@ -28,8 +28,8 @@ class HomeFragment : Fragment(R.layout.fragment_home), HomeAdapter.HomeOnClickLi
         return binding.root
     }
 
-    override fun onResume() {
-        super.onResume()
+    override fun onStart() {
+        super.onStart()
         vm.getHomeLiveData().observe(viewLifecycleOwner) {
             homeAdapter.updateLessonList(it)
         }
@@ -44,9 +44,6 @@ class HomeFragment : Fragment(R.layout.fragment_home), HomeAdapter.HomeOnClickLi
         binding.apply {
             recyclerViewHome.adapter = homeAdapter
             recyclerViewHome.layoutManager = LinearLayoutManager(requireContext())
-            textViewGroupNum.setOnClickListener {
-                findNavController().navigate(R.id.action_homeFragment_to_groupFragment)
-            }
         }
     }
 

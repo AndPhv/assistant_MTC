@@ -1,17 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/main_blue"
+    android:orientation="vertical"
     tools:context=".screen.MainActivity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:titleTextColor="@color/white"
+        app:menu="@menu/appbar_menu"/>
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_weight="1"
         android:background="@color/main_blue"
         app:defaultNavHost="true"
         app:layout_constraintBottom_toTopOf="@+id/bottom_nav_menu"
@@ -28,13 +37,14 @@
         android:background="@color/main_blue"
         app:itemIconTint="@drawable/bottom_nav_selector"
         app:itemTextColor="@color/white"
-        app:labelVisibilityMode="selected"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        app:menu="@menu/bottom_main_menu" />
+        app:menu="@menu/bottom_main_menu"
+        app:itemActiveIndicatorStyle="@style/App.Custom.Indicator"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

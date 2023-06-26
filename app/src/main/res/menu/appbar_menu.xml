@@ -2,9 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/groupFragment"
+        android:icon="@drawable/student_cap_svgrepo_com"
+        android:iconTint="@color/white"
+        android:title="@string/app_bar_group_info"
+        app:showAsAction="ifRoom"/>
+    <item
         android:id="@+id/settingsFragment"
         android:icon="@drawable/baseline_settings_24"
         android:iconTint="@color/white"
         android:title="@string/app_bar_settings"
-        app:showAsAction="always" />
+        app:showAsAction="ifRoom"/>
+
 </menu>

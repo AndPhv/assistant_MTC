@@ -2,7 +2,6 @@ package com.example.assistant_mtc.screen
 
 import android.os.Bundle
 import android.view.Menu
-import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
@@ -27,15 +26,32 @@ class MainActivity : AppCompatActivity() {
             when (destination.id) {
                 R.id.authFragment -> {
                     binding.bottomNavMenu.visibility = View.GONE
-                    supportActionBar?.hide()
+                    binding.topAppBar.visibility = View.GONE
                 }
 
                 else -> {
                     binding.bottomNavMenu.visibility = View.VISIBLE
-                    supportActionBar?.show()
+                    binding.topAppBar.visibility = View.VISIBLE
                 }
             }
         }
+        binding.topAppBar.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.settingsFragment -> {
+                    navController.navigate(it.itemId)
+                    true
+                }
+
+                R.id.groupFragment -> {
+                    navController.navigate(it.itemId)
+                    true
+                }
+
+                else -> false
+            }
+        }
+        binding.topAppBar.title = "Учебный взвод 551"
+
     }
 
     private fun setupNavigation() {
@@ -48,19 +64,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.appbar_menu, menu)
         return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.settingsFragment -> {
-                navController.navigate(R.id.settingsFragment)
-                true
-            }
-
-            else -> {
-                super.onOptionsItemSelected(item)
-            }
-        }
     }
 
     @Deprecated("Deprecated in Java")

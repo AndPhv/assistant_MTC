@@ -7,4 +7,5 @@
     <string name="fragment_label_about">О ВУЦ</string>
     <string name="fragment_label_employee">Сотрудники ВУЦ</string>
     <string name="app_bar_settings">Настройки</string>
+    <string name="app_bar_group_info">О взводе</string>
 </resources>

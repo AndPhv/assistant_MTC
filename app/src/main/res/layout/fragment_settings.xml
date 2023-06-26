@@ -9,7 +9,6 @@
         android:id="@+id/emblem"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
         android:scaleType="centerCrop"
@@ -22,11 +21,14 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_margin="10dp"
         android:background="@color/green_bc"
         app:layout_constraintBottom_toBottomOf="@+id/emblem"
         app:layout_constraintEnd_toEndOf="@+id/emblem"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/emblem"
-        app:layout_constraintTop_toTopOf="@+id/emblem">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:id="@+id/linearLayout3"
@@ -71,7 +73,7 @@
                         android:layout_height="wrap_content"
                         android:text="Мобильный ассистент ВУЦ"
                         android:textColor="@color/white"
-                        android:textSize="16sp" />
+                        android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/textView6"
@@ -79,7 +81,8 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:text="Разработчики: \nПухов Андрей Кириллович \nСорокин Тимофей Сергеевич"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -99,15 +102,15 @@
         </LinearLayout>
 
         <Button
-            style="@style/Widget.Material3.Button.IconButton.Filled"
             android:id="@+id/button4"
+            style="@style/Widget.Material3.Button.IconButton.Filled"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/button_red"
             android:text="Выйти"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:backgroundTint="@color/button_red"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

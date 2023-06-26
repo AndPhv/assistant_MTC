@@ -29,8 +29,8 @@ class LessonFragment: Fragment(R.layout.fragment_lesson), LessonAdapter.LessonOn
         return binding.root
     }
 
-    override fun onResume() {
-        super.onResume()
+    override fun onStart() {
+        super.onStart()
         vm.getLessonLiveData().observe(viewLifecycleOwner) {
             lessonAdapter.updateLessonList(it)
         }

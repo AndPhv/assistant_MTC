@@ -24,8 +24,8 @@ class EmployeeFragment : Fragment(R.layout.fragment_employee) {
         return binding.root
     }
 
-    override fun onResume() {
-        super.onResume()
+    override fun onStart() {
+        super.onStart()
         //Для получения данных из вью модели, подписываемся на нужную лайв дату в методе onResume()
         vm.getEmployeeLiveData().observe(viewLifecycleOwner) {
             //Обновляем данные в адаптере

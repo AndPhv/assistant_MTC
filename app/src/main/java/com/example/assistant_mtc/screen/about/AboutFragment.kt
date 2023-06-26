@@ -27,8 +27,8 @@ class AboutFragment : Fragment(R.layout.fragment_about), AboutAdapter.AboutOnCli
         return binding.root
     }
 
-    override fun onResume() {
-        super.onResume()
+    override fun onStart() {
+        super.onStart()
         vm.getAboutLiveData().observe(viewLifecycleOwner) {
             aboutAdapter.updateAboutList(it)
         }
