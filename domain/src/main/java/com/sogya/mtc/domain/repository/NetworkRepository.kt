@@ -2,8 +2,8 @@ package com.sogya.mtc.domain.repository
 
 
 import com.sogya.mtc.domain.models.LessonDomain
-import io.reactivex.Single
+import kotlinx.coroutines.flow.Flow
 
 interface NetworkRepository {
-    fun getLessonsByGroupId(token:String, groupId: Int): Single<List<LessonDomain>>
+    suspend fun getLessonsByGroupId(token: String, groupId: Int): Flow<List<LessonDomain>>
 }

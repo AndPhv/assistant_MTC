@@ -10,18 +10,18 @@ import com.sogya.mtc.domain.usecase.lesson.InsertLessonsUseCase
 import com.sogya.mtc.domain.usecase.network.GetLessonsByGroupIdUseCase
 import com.sogya.mtc.domain.utils.Constants
 import dagger.hilt.android.lifecycle.HiltViewModel
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.observers.DisposableSingleObserver
-import io.reactivex.schedulers.Schedulers
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class HomeVM @Inject constructor(
-    getLessonsUseCase:GetAllLessonsUseCase,
-    private val insertLessonsUseCase:InsertLessonsUseCase,
+    getLessonsUseCase: GetAllLessonsUseCase,
+    private val insertLessonsUseCase: InsertLessonsUseCase,
     private val getLessonsByGroupIdUseCase: GetLessonsByGroupIdUseCase
-): ViewModel() {
+) : ViewModel() {
     private var lessonLiveData: LiveData<List<LessonDomain>> = MutableLiveData()
     private val groupId: Int? = null
     private val errorLiveData = MutableLiveData<String>()
@@ -35,21 +35,15 @@ class HomeVM @Inject constructor(
     }
 
     private fun updateTimeTable() {
-        getLessonsByGroupIdUseCase(token = Constants.BASE_TOKEN, groupId = groupId!!)
-            .subscribeOn(
-                Schedulers.io()
-            )
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(object : DisposableSingleObserver<List<LessonDomain>>() {
-                override fun onSuccess(t: List<LessonDomain>) {
-                    viewModelScope.launch {
-                        insertLessonsUseCase.invoke(t)
-                    }
+        viewModelScope.launch {
+            getLessonsByGroupIdUseCase(token = Constants.BASE_TOKEN, groupId = groupId!!)
+                .flowOn(Dispatchers.IO)
+                .catch {
+                    errorLiveData.postValue(it.message)
                 }
-
-                override fun onError(e: Throwable) {
-                    errorLiveData.postValue(e.message)
+                .collect {
+                    insertLessonsUseCase.invoke(it)
                 }
-            })
+        }
     }
 }
