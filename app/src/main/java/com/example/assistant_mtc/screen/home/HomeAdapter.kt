@@ -14,9 +14,6 @@ class HomeAdapter(
 ) : RecyclerView.Adapter<HomeAdapter.HomeViewHolder>() {
 
     private var lessonList = arrayListOf<LessonDomain>()
-    private val timeArray = arrayListOf(
-        "9:00-10.30", "10:40-12.10", "13:00-14.30", "14:40-16.10",
-    )
 
     interface HomeOnClickListener {
         fun onClick(command: Int)
@@ -39,10 +36,11 @@ class HomeAdapter(
 
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
         val lesson = lessonList[position]
-        holder.numLesTextView.text = (position + 1).toString()
-        holder.lessonTextView.text = timeArray[position]
+        holder.numLesTextView.text = lesson.id
+        holder.lessonTextView.text = lesson.lesson
         holder.employeeTextView.text = lesson.employee
-        holder.audienceTextView.text = lesson.audience
+        holder.timeLesTextView.text = lesson.audience
+        holder.audienceTextView.text = lesson.infoLesson
         holder.linearLayHome.setOnClickListener {
             homeOnClickListener.onClick(R.layout.fragment_lesson)
         }

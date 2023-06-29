@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.sogya.mtc.data.models.LessonData
 import com.sogya.mtc.domain.models.LessonDomain
 import com.sogya.mtc.domain.usecase.lesson.GetAllLessonsUseCase
 import com.sogya.mtc.domain.usecase.lesson.InsertLessonsUseCase
@@ -25,6 +26,19 @@ class HomeVM @Inject constructor(
     private var lessonLiveData: LiveData<List<LessonDomain>> = MutableLiveData()
     private val groupId: Int? = null
     private val errorLiveData = MutableLiveData<String>()
+
+    //* Test *
+    private val homeList = listOf(
+        LessonData("1 пара", "09:00 - 10:30", "Самостоятельная работа", "Шубин А.В.", "Ауд. 101"),
+        LessonData("2 пара", "10:40 - 12:10", "Тактика ВВС", "Непорожнев Д.А.", "Ауд. 101"),
+        LessonData(
+            "3 пара",
+            "13:00 - 14:30",
+            "Военно-специальная подготовка",
+            "Ренкавик В.А.",
+            "Ауд. 101"
+        )
+    )
 
     fun getHomeLiveData(): LiveData<List<LessonDomain>> = lessonLiveData
     fun getErrorLiveData(): LiveData<String> = errorLiveData
