@@ -57,7 +57,7 @@
                 android:layout_marginBottom="5dp"
                 android:backgroundTint="@color/button_orange"
                 android:text="Информация о преподавателе "
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
