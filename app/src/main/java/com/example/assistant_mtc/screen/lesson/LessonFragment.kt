@@ -6,14 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.assistant_mtc.R
 import com.example.assistant_mtc.databinding.FragmentLessonBinding
-import com.sogya.mtc.data.database.AppDataBase
-import com.sogya.mtc.domain.repository.LessonRepository
-import com.sogya.mtc.data.repository.LessonRepositoryImpl
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LessonFragment: Fragment(R.layout.fragment_lesson), LessonAdapter.LessonOnClickListener {
     private lateinit var binding: FragmentLessonBinding
     private val vm: LessonVM by viewModels()

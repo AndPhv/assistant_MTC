@@ -6,4 +6,5 @@ object Constants {
     const val OPEN_ADDRESS = "address"
     const val BASE_URI = "https://127.0.0.1"
     const val BASE_TOKEN = "token"
+    const val LESSON_TABLE_NAME = "lessons"
 }

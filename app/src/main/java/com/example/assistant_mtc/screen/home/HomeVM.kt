@@ -1,11 +1,12 @@
 package com.example.assistant_mtc.screen.home
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sogya.mtc.data.models.LessonData
-import com.sogya.mtc.domain.models.LessonDomain
+import com.example.assistant_mtc.mapper.toPresentationList
+import com.example.assistant_mtc.model.LessonPresentation
 import com.sogya.mtc.domain.usecase.lesson.GetAllLessonsUseCase
 import com.sogya.mtc.domain.usecase.lesson.InsertLessonsUseCase
 import com.sogya.mtc.domain.usecase.network.GetLessonsByGroupIdUseCase
@@ -14,6 +15,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -23,29 +25,20 @@ class HomeVM @Inject constructor(
     private val insertLessonsUseCase: InsertLessonsUseCase,
     private val getLessonsByGroupIdUseCase: GetLessonsByGroupIdUseCase
 ) : ViewModel() {
-    private var lessonLiveData: LiveData<List<LessonDomain>> = MutableLiveData()
+    private var lessonLiveData = MutableLiveData<List<LessonPresentation>>()
     private val groupId: Int? = null
     private val errorLiveData = MutableLiveData<String>()
 
-    //* Test *
-    private val homeList = listOf(
-        LessonData("1 пара", "09:00 - 10:30", "Самостоятельная работа", "Шубин А.В.", "Ауд. 101"),
-        LessonData("2 пара", "10:40 - 12:10", "Тактика ВВС", "Непорожнев Д.А.", "Ауд. 101"),
-        LessonData(
-            "3 пара",
-            "13:00 - 14:30",
-            "Военно-специальная подготовка",
-            "Ренкавик В.А.",
-            "Ауд. 101"
-        )
-    )
-
-    fun getHomeLiveData(): LiveData<List<LessonDomain>> = lessonLiveData
-    fun getErrorLiveData(): LiveData<String> = errorLiveData
-
     init {
-        lessonLiveData = getLessonsUseCase()
-        //updateTimeTable()
+        viewModelScope.launch {
+            getLessonsUseCase().flowOn(Dispatchers.IO).catch {
+                Log.e("LessonFlowError", it.message.toString())
+            }.map { lessonListDomain ->
+                lessonListDomain.toPresentationList()
+            }.collect { lessonList ->
+                lessonLiveData.postValue(lessonList)
+            }
+        }
     }
 
     private fun updateTimeTable() {
@@ -60,4 +53,7 @@ class HomeVM @Inject constructor(
                 }
         }
     }
+
+    fun getHomeLiveData(): LiveData<List<LessonPresentation>> = lessonLiveData
+    fun getErrorLiveData(): LiveData<String> = errorLiveData
 }

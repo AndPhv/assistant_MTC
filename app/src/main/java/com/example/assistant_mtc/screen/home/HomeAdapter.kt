@@ -7,13 +7,13 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assistant_mtc.R
-import com.sogya.mtc.domain.models.LessonDomain
+import com.example.assistant_mtc.model.LessonPresentation
 
 class HomeAdapter(
     private val homeOnClickListener: HomeOnClickListener
 ) : RecyclerView.Adapter<HomeAdapter.HomeViewHolder>() {
 
-    private var lessonList = arrayListOf<LessonDomain>()
+    private var lessonList = arrayListOf<LessonPresentation>()
 
     interface HomeOnClickListener {
         fun onClick(command: Int)
@@ -50,7 +50,7 @@ class HomeAdapter(
         return lessonList.size
     }
 
-    fun updateLessonList(inputArrayList: List<LessonDomain>) {
+    fun updateLessonList(inputArrayList: List<LessonPresentation>) {
         this.lessonList.clear()
         notifyItemChanged(1)
         this.lessonList.addAll(inputArrayList)
