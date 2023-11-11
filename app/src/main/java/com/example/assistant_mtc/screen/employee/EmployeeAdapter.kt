@@ -1,16 +1,20 @@
 package com.example.assistant_mtc.screen.employee
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.assistant_mtc.R
 import com.sogya.mtc.domain.models.EmployeeDomain
 import com.sogya.mtc.domain.models.EmployeeHeaderDomain
 
-class EmployeeAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class EmployeeAdapter(
+    private val context: Context
+) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var employeeList = arrayListOf<Any>()
 
@@ -68,7 +72,12 @@ class EmployeeAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             }
             is EmployeeViewHolder -> {
                 if (employee is EmployeeDomain) {
-                    holder.imageEmployee.setImageResource(employee.imageEmployee)
+                    Glide
+                        .with(context)
+                        .load(employee.imageUri)
+                        .centerCrop()
+                        .placeholder(R.drawable.background)
+                        .into(holder.imageEmployee)
                     holder.nameTextView.text = employee.fullName
                     holder.jobTextView.text = employee.jobTitle
                     holder.emailTextView.text = employee.email

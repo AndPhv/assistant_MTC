@@ -13,7 +13,7 @@ import com.example.assistant_mtc.databinding.FragmentEmployeeBinding
 class EmployeeFragment : Fragment(R.layout.fragment_employee) {
     private lateinit var binding: FragmentEmployeeBinding
     private val vm: EmployeeVM by viewModels()
-    private val employeeAdapter = EmployeeAdapter()
+    private var employeeAdapter: EmployeeAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,12 +29,13 @@ class EmployeeFragment : Fragment(R.layout.fragment_employee) {
         //Для получения данных из вью модели, подписываемся на нужную лайв дату в методе onResume()
         vm.getEmployeeLiveData().observe(viewLifecycleOwner) {
             //Обновляем данные в адаптере
-            employeeAdapter.updateEmployeeList(it)
+            employeeAdapter?.updateEmployeeList(it)
         }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        employeeAdapter = EmployeeAdapter(requireContext())
         binding.apply {
             recyclerViewEmployee.adapter = employeeAdapter
             recyclerViewEmployee.layoutManager = LinearLayoutManager(requireContext())

@@ -1,7 +1,7 @@
 package com.sogya.mtc.domain.models
 
 data class EmployeeDomain(
-    val imageEmployee: Int,
+    val imageUri: String,
     val fullName: String,
     val jobTitle: String,
     val email: String,
